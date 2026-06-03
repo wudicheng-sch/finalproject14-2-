@@ -55,3 +55,34 @@ def process_campus_buildings_with_osrm(buildings_list, university_lat, universit
         updated_results.append(building)
         
     return updated_results
+
+def filter_by_walking_time(buildings_list: list, center_lat: float, center_lon: float, max_time_min: float = 5.0):
+    """
+    篩選掉步行時間超過指定時間的地點
+    
+    Args:
+        buildings_list: 建築物清單
+        center_lat: 起點緯度
+        center_lon: 起點經度
+        max_time_min: 最大步行時間（分鐘，預設 5.0）
+    
+    Returns:
+        list: 篩選後的結果，只包含步行時間 <= max_time_min 的地點
+    """
+    if not buildings_list:
+        return []
+    
+    # 先計算所有地點的步行時間
+    final_data = process_campus_buildings_with_osrm(
+        buildings_list=buildings_list,
+        university_lat=center_lat,
+        university_lon=center_lon
+    )
+    
+    # 篩選：只保留步行時間 <= max_time_min 的地點
+    filtered_data = [
+        poi for poi in final_data 
+        if poi['real_walking_time_min'] is not None and poi['real_walking_time_min'] <= max_time_min
+    ]
+    
+    return filtered_data
