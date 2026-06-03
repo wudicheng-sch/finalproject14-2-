@@ -1,6 +1,8 @@
 # finalproject14-2-
-清大115上煥宗程設一finalproject14組(2)/n
+清大115上煥宗程設一finalproject14組(2)
+
 url = "https://nominatim.openstreetmap.org/search"
+
 poi_types = [
             ("[tourism=artwork]", 1.0),
             ("大樓", 0.8),
