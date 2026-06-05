@@ -203,7 +203,7 @@ def check_answer_view():
                 distance = osrm_data.get("real_distance_m", 0)
             else:
                 distance = 0
-            score = 100 if is_correct else math.floor(100*(2.8**(-((distance/515)**1.5))))
+            score = 100 if is_correct else math.floor(100*(2.8**(-((distance/715)**1.5))))
             # 提取正解與猜測點的經緯度 
         
     map_html = generate_answer_map(target_place, player_guess_dict)
