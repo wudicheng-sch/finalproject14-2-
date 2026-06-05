@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f1c072d694fa6af9aae2b3232d870105 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_f1c072d694fa6af9aae2b3232d870105" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f1c072d694fa6af9aae2b3232d870105 = L.map(
+                "map_f1c072d694fa6af9aae2b3232d870105",
+                {
+                    center: [24.796, 120.996],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 15,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7124b54ce301f3b7fcaeccc986b0a32f = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7124b54ce301f3b7fcaeccc986b0a32f.addTo(map_f1c072d694fa6af9aae2b3232d870105);
+        
+    
+            var poly_line_caaf83953f2fdf82769a14946f62d2b5 = L.polyline(
+                [[24.795966, 120.995972], [24.795966, 120.995972]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f1c072d694fa6af9aae2b3232d870105);
+        
+    
+        var popup_2ab00c223f1a1f34345caaed8b2c320a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d213d367516ee0843bddaafeb5b28d06 = $(`<div id="html_d213d367516ee0843bddaafeb5b28d06" style="width: 100.0%; height: 100.0%;">距離: 0.0 km</div>`)[0];
+                popup_2ab00c223f1a1f34345caaed8b2c320a.setContent(html_d213d367516ee0843bddaafeb5b28d06);
+            
+        
+
+        poly_line_caaf83953f2fdf82769a14946f62d2b5.bindPopup(popup_2ab00c223f1a1f34345caaed8b2c320a)
+        ;
+
+        
+    
+    
+            var marker_6f69340132d4eec285475f8725d75bd1 = L.marker(
+                [24.796, 120.996],
+                {
+}
+            ).addTo(map_f1c072d694fa6af9aae2b3232d870105);
+        
+    
+            var icon_96d35cffab98b8d5203f149824324d10 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "check",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_11620dfd6121379deb3ea0fc1ff1e075 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8d90985414c3d6c121552e3a3e09a5e1 = $(`<div id="html_8d90985414c3d6c121552e3a3e09a5e1" style="width: 100.0%; height: 100.0%;"><b>正確答案</b><br>清華大學食堂</div>`)[0];
+                popup_11620dfd6121379deb3ea0fc1ff1e075.setContent(html_8d90985414c3d6c121552e3a3e09a5e1);
+            
+        
+
+        marker_6f69340132d4eec285475f8725d75bd1.bindPopup(popup_11620dfd6121379deb3ea0fc1ff1e075)
+        ;
+
+        
+    
+    
+            marker_6f69340132d4eec285475f8725d75bd1.bindTooltip(
+                `<div>
+                     正確答案: 清華大學食堂
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6f69340132d4eec285475f8725d75bd1.setIcon(icon_96d35cffab98b8d5203f149824324d10);
+            
+    
+            var marker_8aa67c181ac5980368f50091ea071f27 = L.marker(
+                [24.796, 120.996],
+                {
+}
+            ).addTo(map_f1c072d694fa6af9aae2b3232d870105);
+        
+    
+            var icon_6e887dc7439521421ff88d340e49019f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "question",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_32761420ed59f364b99b475a3a3d8b1b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_841ebeaa373c741d426203b39af9b378 = $(`<div id="html_841ebeaa373c741d426203b39af9b378" style="width: 100.0%; height: 100.0%;"><b>玩家回答</b><br>清華大學食堂<br>距離: 0.0 km<br>分數: 100</div>`)[0];
+                popup_32761420ed59f364b99b475a3a3d8b1b.setContent(html_841ebeaa373c741d426203b39af9b378);
+            
+        
+
+        marker_8aa67c181ac5980368f50091ea071f27.bindPopup(popup_32761420ed59f364b99b475a3a3d8b1b)
+        ;
+
+        
+    
+    
+            marker_8aa67c181ac5980368f50091ea071f27.bindTooltip(
+                `<div>
+                     玩家回答: 清華大學食堂
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8aa67c181ac5980368f50091ea071f27.setIcon(icon_6e887dc7439521421ff88d340e49019f);
+            
+    
+            var marker_38aab89b422e30b8b384874417ea07c6 = L.marker(
+                [24.796, 120.996],
+                {
+}
+            ).addTo(map_f1c072d694fa6af9aae2b3232d870105);
+        
+    
+            var icon_7ccbd75ea62bf9769a48a0e12458d2e6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_37513056342b62410975d0ff8f495c80 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b99ac02933c73ef4dd455600e55d153a = $(`<div id="html_b99ac02933c73ef4dd455600e55d153a" style="width: 100.0%; height: 100.0%;"><b>距離</b><br>0.0 km<br>0.0 分鐘</div>`)[0];
+                popup_37513056342b62410975d0ff8f495c80.setContent(html_b99ac02933c73ef4dd455600e55d153a);
+            
+        
+
+        marker_38aab89b422e30b8b384874417ea07c6.bindPopup(popup_37513056342b62410975d0ff8f495c80)
+        ;
+
+        
+    
+    
+            marker_38aab89b422e30b8b384874417ea07c6.bindTooltip(
+                `<div>
+                     距離: 0.0 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_38aab89b422e30b8b384874417ea07c6.setIcon(icon_7ccbd75ea62bf9769a48a0e12458d2e6);
+            
+</script>
+</html>
