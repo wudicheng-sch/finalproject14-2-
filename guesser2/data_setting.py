@@ -2,6 +2,7 @@ from random_point import get_combined_polygon, generate_random_point_in_polygon
 from search import search_multiple_poi
 from route import filter_by_walking_time
 from summary import display_summary
+from reverse import reverse_geocode_point
 import random
 
 combined_polygon = get_combined_polygon([
@@ -33,7 +34,9 @@ def select_random_poi(filtered_data: list, count: int = 5):
 def data_setting():
     if combined_polygon:
         # 1. 抽隨機點
-        random_center = generate_random_point_in_polygon(combined_polygon)
+        random_center_coodi = generate_random_point_in_polygon(combined_polygon)
+        if random_center_coodi:
+            random_center = reverse_geocode_point(random_center_coodi['lat'], random_center_coodi['lon'])
         
         # 2. 定義要搜尋的地點類型清單
         poi_types = [
@@ -85,7 +88,7 @@ def data_setting():
                 print(f"{i}. {poi['display_name'].split(',')[0]}")
                 print(f"   ├─ 距離: {poi['real_distance_m']} 公尺")
                 print(f"   └─ 時間: {poi['real_walking_time_min']} 分鐘\n")
-            return sorted_data
+            return [random_center] + sorted_data
         
         else:
             print("❌ 沒有篩選出任何地點")
