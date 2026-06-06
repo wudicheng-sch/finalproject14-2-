@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>清交Guesser - 對答案結果</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; text-align: center; padding: 20px; }
+        .result-box { max-width: 850px; margin: 0 auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .success { color: #2ecc71; }
+        .fail { color: #e74c3c; }
+        .feedback { color: #34495e; font-size: 18px; margin: 15px 0; }
+        .hint-text { color: #e67e22; font-weight: bold; font-size: 18px; margin: 10px 0; }
+        .map-container { width: 100%; height: 500px; margin-top: 20px; border: 2px solid #ddd; border-radius: 8px; overflow: hidden; }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h1>🏁 對答案時間 🏁</h1>
+        
+        {% if status == 'success' %}
+            <h2 class="success">本局得分：{{ score }} 分</h2>
+        {% else %}
+            <h2 class="fail">本局得分：{{ score }} 分</h2>
+        {% endif %}
+        
+        <p class="feedback">{{ feedback_detail }}</p>
+        
+        {% if error_hint %}
+            <p class="hint-text">{{ error_hint }}</p>
+        {% endif %}
+        
+        <hr>
+        
+        {% if show_guess_name %}
+            <p>你輸入的是：【{{ player_guess_name }}】</p>
+        {% endif %}
+        
+        <p>💡 正確答案其實是：<b>【{{ target_name }}】</b></p>
+        <div class="map-container">
+            {{ map_html|safe }}
+        </div>
+        <a href="/" style="display:inline-block; margin-top:20px; padding:10px 20px; background:#34495e; color:white; text-decoration:none; border-radius:6px;">回主選單 🔁</a>
+    </div>
+</body>
+</html>
