@@ -3,21 +3,33 @@ from search import find_location_by_nominatim_with_bounds
 from flask import render_template_string
 from route import get_walking_time_and_route
 
-def generate_answer_map(target_place: dict, player_guess: dict):
+def generate_answer_map(target_place: dict, player_guess: dict = None):
     """
     對答案地圖生成函式
     輸入：
       - target_place: 正解字典 (包含 lat, lon, address 等)
-      - player_guess: 玩家猜測地點字典
+      - player_guess: 玩家猜測地點字典；若為 None，表示未知位置，只顯示目標點
     回傳：
       - folium.Map 物件的 HTML 字串，方便 Flask 直接渲染
     """
-    # 提取正解與猜測點的經緯度
+    # 提取正解經緯度
     t_lat, t_lon = target_place['lat'], target_place['lon']
-    g_lat, g_lon = player_guess['lat'], player_guess['lon']
-    
-    # 提取顯示名稱（優先使用 amenity，其次為 display_name）
     t_name = target_place['address'].get('amenity', target_place['display_name'].split(',')[0])
+    
+    # 如果玩家猜測為未知位置（None），只顯示目標點
+    if player_guess is None:
+        mymap = folium.Map(location=[t_lat, t_lon], zoom_start=16)
+        t_popup_text = f"<b>🎯 正確答案：{t_name}</b>"
+        folium.Marker(
+            location=[t_lat, t_lon],
+            popup=folium.Popup(t_popup_text, max_width=300),
+            tooltip=f"正確答案: {t_name}",
+            icon=folium.Icon(color='red', icon='info-sign')
+        ).add_to(mymap)
+        return mymap._repr_html_()
+    
+    # 正常情況：玩家猜測位置已知
+    g_lat, g_lon = player_guess['lat'], player_guess['lon']
     g_name = player_guess['address'].get('amenity', player_guess['display_name'].split(',')[0])
     
     # 1. 呼叫你現有的 OSRM 路由函式取得時間與距離
