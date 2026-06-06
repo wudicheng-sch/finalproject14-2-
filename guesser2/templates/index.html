@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>清交Guesser - 主選單</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; text-align: center; padding-top: 50px; }
+        .menu-box { max-width: 500px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .btn { display: block; padding: 15px; margin: 20px 0; font-size: 18px; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        .btn-start { background-color: #3498db; }
+        .btn-rules { background-color: #e67e22; }
+
+        /* 1. 在首頁注入 CSS 載入動畫遮罩（預設隱藏 display: none） */
+        #loading-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: none; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 9999;
+        }
+        .spinner {
+            width: 50px; height: 50px;
+            border: 5px solid #f3f3f3; border-top: 5px solid #3498db;
+            border-radius: 50%; animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loading-text { margin-top: 20px; font-size: 18px; color: #34495e; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <!-- 2. 插入動畫 HTML 結構 -->
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">🎯 正在計算校園地標與步行路線，請稍候...</div>
+    </div>
+
+    <div class="menu-box">
+        <h1>🧩 清交Guesser 🧩</h1>
+        <p>考驗你對校園周邊地理位置的敏銳度！</p>
+        <hr>
+        <!-- 3. 在按鈕加上 onclick 事件，點擊立刻跳出動畫 -->
+        <a href="/start_game" class="btn btn-start" onclick="showLoadingSpinner()">開始遊戲</a>
+        <a href="/rules" class="btn btn-rules">規則說明</a>
+    </div>
+
+    <script>
+        // 4. 控制顯示的 JavaScript 函數
+        function showLoadingSpinner() {
+            var overlay = document.getElementById('loading-overlay');
+            if (overlay) { 
+                overlay.style.display = 'flex'; 
+            }
+        }
+    </script>
+</body>
+</html>
